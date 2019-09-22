@@ -72,19 +72,18 @@ public class LoginActivity extends AppCompatActivity {
 
         if(!eml.equals("") || !pswd.equals("")) {
 
-            if (eml.equals("admin@admin.com") && pswd.equals("admin")) {
-                Intent openHome = new Intent(getApplicationContext(), HomeActivity.class);
-                openHome.putExtra("admin", "admin");
-                startActivity(openHome);
-                return;
-            }
-
             sharedpreferences = getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE);
             SharedPreferences.Editor editor = sharedpreferences.edit();
 
             editor.putString(eml,eml);
             editor.commit();
 
+            if (eml.equals("admin@admin.com") && pswd.equals("admin")) {
+                Intent openHome = new Intent(getApplicationContext(), HomeActivity.class);
+                openHome.putExtra("admin", "admin");
+                startActivity(openHome);
+                return;
+            }
 
             if( dbHelper.readInfo(eml, pswd)){
                 Intent openHome = new Intent(getApplicationContext(), HomeActivity.class);
