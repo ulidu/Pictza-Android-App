@@ -1,5 +1,6 @@
 package com.example.pictza;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -12,31 +13,42 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import static com.example.pictza.LoginActivity.MyPREFERENCES;
 
 public class HomeActivity extends AppCompatActivity {
 
     ImageView user;
     TextView usertxt;
+    String admin;
+
+    SharedPreferences sharedpreferences;
+
+    public static final String MyPREFERENCES = "MyPrefs" ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
+        admin = getIntent().getStringExtra("admin");
+
         ImageView user = findViewById(R.id.imageView42);
         TextView usertxt = findViewById(R.id.textView70);
-
 
         user.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
+                sharedpreferences = getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE);
+                SharedPreferences.Editor editor = sharedpreferences.edit();
+
+                editor.putString(admin,admin);
+                editor.commit();
+
                 // Reading from SharedPreferences
                 SharedPreferences shared = getSharedPreferences(MyPREFERENCES, MODE_PRIVATE);
-                String admin = (shared.getString("eml", ""));
+                String check = (shared.getString(admin, ""));
 
-                if (admin.equals("admin@admin.com")){
+                if (check.equals("admin@admin.com")){
 
                     Intent intent = new Intent(HomeActivity.this, addToAuctionOr.class);
                     startActivity(intent);
@@ -48,14 +60,12 @@ public class HomeActivity extends AppCompatActivity {
 
                 }
 
-
             }
         });
 
         usertxt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
 
 
             }

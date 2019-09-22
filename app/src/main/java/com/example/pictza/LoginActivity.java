@@ -18,9 +18,6 @@ public class LoginActivity extends AppCompatActivity {
     EditText lg_email,lg_password;
     Button lg_signin;
 
-    SharedPreferences sharedpreferences;
-
-    public static final String MyPREFERENCES = "MyPrefs" ;
     private DatabaseHelper dbHelper=new DatabaseHelper(this);
 
     @Override
@@ -71,12 +68,6 @@ public class LoginActivity extends AppCompatActivity {
 
 
         if(!eml.equals("") || !pswd.equals("")) {
-
-            sharedpreferences = getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE);
-            SharedPreferences.Editor editor = sharedpreferences.edit();
-
-            editor.putString(eml,eml);
-            editor.commit();
 
             if (eml.equals("admin@admin.com") && pswd.equals("admin")) {
                 Intent openHome = new Intent(getApplicationContext(), HomeActivity.class);
