@@ -20,6 +20,8 @@
 
     <string name="carta">Add to Cart</string>
 
+    <string name="ad">admin</string>
+
     <string name="edit1">Update</string>
     <string name="remove1">Remove</string>
     <string name="imageupload">Upload Image</string>

@@ -19,6 +19,7 @@ public class HomeActivity extends AppCompatActivity {
     ImageView user;
     TextView usertxt;
     String admin;
+    int count=0;
 
     SharedPreferences sharedpreferences;
 
@@ -35,9 +36,21 @@ public class HomeActivity extends AppCompatActivity {
         TextView usertxt = findViewById(R.id.textView70);
         final TextView hiddentxt = findViewById(R.id.hiddentxt);
 
+        if (count > 0){
+
+            hiddentxt.setText("admin");
+
+        }
+
         user.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+                if (count > 0){
+
+                    hiddentxt.setText("admin");
+
+                }
 
                 sharedpreferences = getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE);
                 SharedPreferences.Editor editor = sharedpreferences.edit();
@@ -55,6 +68,7 @@ public class HomeActivity extends AppCompatActivity {
 
                     Intent intent = new Intent(HomeActivity.this, addToAuctionOr.class);
                     startActivity(intent);
+                    count++;
 
                 }else{
 
