@@ -14,14 +14,14 @@ public class HomeActivity extends AppCompatActivity {
 
     ImageView user;
     TextView usertxt;
-    String isAdmin;
+    String Admin;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
-        isAdmin=getIntent().getStringExtra("isadmin");
+        Admin=getIntent().getStringExtra("admin");
 
         ImageView user = findViewById(R.id.imageView42);
         TextView usertxt = findViewById(R.id.textView70);
@@ -30,19 +30,17 @@ public class HomeActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                if (isAdmin.equals("user")){
+                if (Admin.equals("user")){
 
-                    Toast t = Toast.makeText(getApplicationContext(), "Sorry, Only admin can manage users", Toast.LENGTH_SHORT);
+                    Toast t = Toast.makeText(HomeActivity.this, "Sorry, Only admin can manage users", Toast.LENGTH_SHORT);
                     t.show();
-                    return;
 
                 }
 
-                if (isAdmin.equals("admin")){
+                if (Admin.equals("admin")){
 
                     Intent intent = new Intent(HomeActivity.this, addToAuctionOr.class);
                     startActivity(intent);
-                    return;
 
                 }
 
@@ -53,19 +51,17 @@ public class HomeActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                if (isAdmin.equals("user")){
+                if (Admin.equals("user")){
 
-                    Toast t = Toast.makeText(getApplicationContext(), "Sorry, Only admin can manage users", Toast.LENGTH_SHORT);
+                    Toast t = Toast.makeText(HomeActivity.this, "Sorry, Only admin can manage users", Toast.LENGTH_SHORT);
                     t.show();
-                    return;
 
                 }
 
-                if (isAdmin.equals("admin")){
+                if (Admin.equals("admin")){
 
                     Intent intent = new Intent(HomeActivity.this, addToAuctionOr.class);
                     startActivity(intent);
-                    return;
 
                 }
 
