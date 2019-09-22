@@ -60,7 +60,6 @@ public class LoginActivity extends AppCompatActivity {
    // }
 
 
-
     public void loginUser(){
 
         String eml = lg_email.getText().toString();
