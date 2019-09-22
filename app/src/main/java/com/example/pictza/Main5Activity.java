@@ -41,7 +41,7 @@ public class Main5Activity extends AppCompatActivity {
                 String et_password=in_password.getText().toString();
                 String et_password_confirm=in_passwordcf.getText().toString();
 
-                if(et_email.matches(emailPattern)){
+                if(!et_email.matches(emailPattern)){
                     Toast.makeText(Main5Activity.this,"Please Enter a valid email",Toast.LENGTH_SHORT).show();
                     return;
                 }
