@@ -13,7 +13,7 @@ import androidx.appcompat.app.AppCompatActivity;
 public class HomeActivity extends AppCompatActivity {
 
     ImageView user;
-    TextView usertxt;
+    TextView usertxt, hiddentxt;
     String Admin;
 
     @Override
@@ -25,19 +25,22 @@ public class HomeActivity extends AppCompatActivity {
 
         ImageView user = findViewById(R.id.imageView42);
         TextView usertxt = findViewById(R.id.textView70);
+        final TextView hiddentxt = findViewById(R.id.hiddentxt);
+
+        hiddentxt.setText(Admin);
 
         user.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                if (Admin.equals("user")){
+                if (hiddentxt.getText().toString().equals("user")){
 
                     Toast t = Toast.makeText(HomeActivity.this, "Sorry, Only admin can manage users", Toast.LENGTH_SHORT);
                     t.show();
 
                 }
 
-                if (Admin.equals("admin")){
+                if (hiddentxt.getText().toString().equals("admin")){
 
                     Intent intent = new Intent(HomeActivity.this, addToAuctionOr.class);
                     startActivity(intent);
@@ -51,14 +54,14 @@ public class HomeActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                if (Admin.equals("user")){
+                if (hiddentxt.getText().toString().equals("user")){
 
                     Toast t = Toast.makeText(HomeActivity.this, "Sorry, Only admin can manage users", Toast.LENGTH_SHORT);
                     t.show();
 
                 }
 
-                if (Admin.equals("admin")){
+                if (hiddentxt.getText().toString().equals("admin")){
 
                     Intent intent = new Intent(HomeActivity.this, addToAuctionOr.class);
                     startActivity(intent);
