@@ -5,9 +5,13 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.database.Cursor;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -23,6 +27,7 @@ public class CartEdit extends AppCompatActivity {
     TextView upTitle,upCategory,upDescription, upPrice, upQuantity;
     Button btnUpdate,btnRemove;
     String cid;
+    ImageView upPainting;
     ArrayList<CartModel> cartArray;
     DatabaseHelper dbHelper=new DatabaseHelper(this);
     @Override
@@ -35,6 +40,7 @@ public class CartEdit extends AppCompatActivity {
         upDescription=findViewById(R.id.description_paint_up);
         upPrice=findViewById(R.id.price_paint_up);
         upQuantity=findViewById(R.id.quantity_paint_up);
+        upPainting=findViewById(R.id.up_imagePainting2);
 
         btnUpdate=findViewById(R.id.update_painting);
         btnRemove=findViewById(R.id.remove_painting);
@@ -61,6 +67,15 @@ public class CartEdit extends AppCompatActivity {
         final String new_description=upDescription.getText().toString();
         final String new_price=upPrice.getText().toString();
         final String new_quantity=upQuantity.getText().toString();
+
+        Cursor cursor = dbHelper.getShowData("select * from painting");
+
+        while (cursor.moveToNext()){
+            byte[] painting = cursor.getBlob(5);
+
+            Bitmap bitmap = BitmapFactory.decodeByteArray(painting,0,painting.length);
+            upPainting.setImageBitmap(bitmap);
+        }
 
         btnUpdate.setOnClickListener(new View.OnClickListener() {
             @Override
