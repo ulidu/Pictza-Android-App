@@ -27,7 +27,6 @@ public class HomeActivity extends AppCompatActivity {
         TextView usertxt = findViewById(R.id.textView70);
         final TextView hiddentxt = findViewById(R.id.hiddentxt);
 
-
         hiddentxt.setText(Admin);
 
         user.setOnClickListener(new View.OnClickListener() {
