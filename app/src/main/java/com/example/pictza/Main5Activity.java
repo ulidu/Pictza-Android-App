@@ -33,10 +33,18 @@ public class Main5Activity extends AppCompatActivity {
         in_signup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+                String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
+
                 String et_username=in_username.getText().toString();
                 String et_email=in_email.getText().toString();
                 String et_password=in_password.getText().toString();
                 String et_password_confirm=in_passwordcf.getText().toString();
+
+                if(et_email.matches(emailPattern)){
+                    Toast.makeText(Main5Activity.this,"Please Enter a valid email",Toast.LENGTH_SHORT).show();
+                    return;
+                }
 
                 if(et_username.equals("")|| et_email.equals("")|| et_password.equals("")|| et_password_confirm.equals("")){
                     Toast.makeText(Main5Activity.this,"Please fill all the fields",Toast.LENGTH_SHORT).show();

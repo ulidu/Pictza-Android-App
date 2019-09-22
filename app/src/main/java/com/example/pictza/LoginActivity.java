@@ -56,12 +56,27 @@ public class LoginActivity extends AppCompatActivity {
 
    // }
 
+
+
     public void loginUser(){
+
         String eml = lg_email.getText().toString();
         String pswd = lg_password.getText().toString();
+
+
         if(!eml.equals("") || !pswd.equals("")) {
+
+            if (eml.equals("admin@admin.com") && pswd.equals("admin")) {
+                Intent openHome = new Intent(getApplicationContext(), HomeActivity.class);
+                openHome.putExtra("admin", "admin");
+                startActivity(openHome);
+                return;
+            }
+
+
             if( dbHelper.readInfo(eml, pswd)){
                 Intent openHome = new Intent(getApplicationContext(), HomeActivity.class);
+                openHome.putExtra("user","user");
                 startActivity(openHome);
             }
             else {
@@ -73,6 +88,7 @@ public class LoginActivity extends AppCompatActivity {
             Toast toast = Toast.makeText(getApplicationContext(), "Please enter your credentials ", Toast.LENGTH_SHORT);
             toast.show();
         }
+
     }
 
 
