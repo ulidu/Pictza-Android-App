@@ -33,6 +33,7 @@ public class HomeActivity extends AppCompatActivity {
 
         ImageView user = findViewById(R.id.imageView42);
         TextView usertxt = findViewById(R.id.textView70);
+        final TextView hiddentxt = findViewById(R.id.hiddentxt);
 
         user.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -48,7 +49,9 @@ public class HomeActivity extends AppCompatActivity {
                 SharedPreferences shared = getSharedPreferences(MyPREFERENCES, MODE_PRIVATE);
                 String check = (shared.getString(admin, ""));
 
-                if (check.equals("admin@admin.com")){
+                hiddentxt.setText(check);
+
+                if (check.equals("admin")){
 
                     Intent intent = new Intent(HomeActivity.this, addToAuctionOr.class);
                     startActivity(intent);
