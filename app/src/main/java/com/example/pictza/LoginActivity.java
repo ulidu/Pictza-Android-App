@@ -68,7 +68,7 @@ public class LoginActivity extends AppCompatActivity {
 
             if (eml.equals("admin@admin.com") && pswd.equals("admin")) {
                 Intent openHome = new Intent(getApplicationContext(), HomeActivity.class);
-                openHome.putExtra("admin", "admin");
+                openHome.putExtra("isadmin", "admin");
                 startActivity(openHome);
                 return;
             }
@@ -76,7 +76,7 @@ public class LoginActivity extends AppCompatActivity {
 
             if( dbHelper.readInfo(eml, pswd)){
                 Intent openHome = new Intent(getApplicationContext(), HomeActivity.class);
-                openHome.putExtra("user","user");
+                openHome.putExtra("isuser","user");
                 startActivity(openHome);
             }
             else {
