@@ -1,7 +1,9 @@
 package com.example.pictza;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextClock;
@@ -10,42 +12,42 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import static com.example.pictza.LoginActivity.MyPREFERENCES;
+
 public class HomeActivity extends AppCompatActivity {
 
     ImageView user;
-    TextView usertxt, hiddentxt;
-    String Admin;
+    TextView usertxt;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
-        Admin=getIntent().getStringExtra("admin");
-
         ImageView user = findViewById(R.id.imageView42);
         TextView usertxt = findViewById(R.id.textView70);
-        final TextView hiddentxt = findViewById(R.id.hiddentxt);
 
-        hiddentxt.setText(Admin);
 
         user.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                if (hiddentxt.getText().toString().equals("user")){
+                // Reading from SharedPreferences
+                SharedPreferences shared = getSharedPreferences(MyPREFERENCES, MODE_PRIVATE);
+                String admin = (shared.getString("eml", ""));
+
+                if (admin.equals("admin@admin.com")){
+
+                    Intent intent = new Intent(HomeActivity.this, addToAuctionOr.class);
+                    startActivity(intent);
+
+                }else{
 
                     Toast t = Toast.makeText(HomeActivity.this, "Sorry, Only admin can manage users", Toast.LENGTH_SHORT);
                     t.show();
 
                 }
 
-                if (hiddentxt.getText().toString().equals("admin")){
-
-                    Intent intent = new Intent(HomeActivity.this, addToAuctionOr.class);
-                    startActivity(intent);
-
-                }
 
             }
         });
@@ -54,19 +56,7 @@ public class HomeActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                if (hiddentxt.getText().toString().equals("user")){
 
-                    Toast t = Toast.makeText(HomeActivity.this, "Sorry, Only admin can manage users", Toast.LENGTH_SHORT);
-                    t.show();
-
-                }
-
-                if (hiddentxt.getText().toString().equals("admin")){
-
-                    Intent intent = new Intent(HomeActivity.this, addToAuctionOr.class);
-                    startActivity(intent);
-
-                }
 
             }
         });
