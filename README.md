@@ -9,6 +9,12 @@ Features of the Pictza Art Gallery App
     
     In this function, users can create their user profiles. So, they can register to this application by giving their details. Admin can view the entered details and if there are any changes, details can be updated. If necessary, the user profiles can be deleted/removed.
 
+![User](https://github.com/ulidu/Pictza-Android-App/blob/master/Screenshots/a.png)
+![User](https://github.com/ulidu/Pictza-Android-App/blob/master/Screenshots/b.png)
+![User](https://github.com/ulidu/Pictza-Android-App/blob/master/Screenshots/c.png)
+![User](https://github.com/ulidu/Pictza-Android-App/blob/master/Screenshots/d.png)
+![User](https://github.com/ulidu/Pictza-Android-App/blob/master/Screenshots/e.png)
+
 2. Manage Paintings
     
     Here user has the privilege to upload the paintings. He/she can upload his/her paintings as an image and give the category, title, a brief description and the price of the paintings. Users can view the uploaded paintings and they can delete or edit the uploaded paintings.
