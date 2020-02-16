@@ -13,7 +13,6 @@ Features of the Pictza Art Gallery App
 ![User](https://github.com/ulidu/Pictza-Android-App/blob/master/Screenshots/b.png)
 ![User](https://github.com/ulidu/Pictza-Android-App/blob/master/Screenshots/c.png)
 ![User](https://github.com/ulidu/Pictza-Android-App/blob/master/Screenshots/d.png)
-![User](https://github.com/ulidu/Pictza-Android-App/blob/master/Screenshots/e.png)
 
 2. Manage Paintings
     
