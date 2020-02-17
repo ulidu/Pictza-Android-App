@@ -5,7 +5,6 @@ SLIIT 2nd Year 2nd Semester MAD Project
 
 Features of the Pictza Art Gallery App
 
-
 1. User Management
     
     In this function, users can create their user profiles. So, they can register to this application by giving their details. Admin can view the entered details and if there are any changes, details can be updated. If necessary, the user profiles can be deleted/removed.
